@@ -26,7 +26,16 @@ add_task_button.addEventListener('click', ()=>{
 });
 
 function renderTask(task){
-    console.log(task);
+    const li = document.createElement("li");
+    li.setAttribute("data-id", task.id  );
+    li.innerHTML = `
+    <span>${task.text}</span>
+    <button>delete</button>
+    `;
+
+    todo_list.appendChild(li)
+
+
     
 }
 
