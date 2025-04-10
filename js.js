@@ -26,14 +26,21 @@ add_task_button.addEventListener('click', ()=>{
 });
 
 function renderTask(task){
+   
     const li = document.createElement("li");
-    li.setAttribute("data-id", task.id  );
+    li.setAttribute("data_id", task.id);
+    if(task.completed) li.classList.add("completed");
+    li.addEventListener("click", ()=>{
+        task.completed = !task.completed;
+        saveTask();
+        li.classList.toggle("completed");
+    }); 
     li.innerHTML = `
     <span>${task.text}</span>
     <button>delete</button>
     `;
 
-    todo_list.appendChild(li)
+    todo_list.appendChild(li);
 
 
     
@@ -43,4 +50,10 @@ function saveTask(){
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+
+function removeTask{
+    
+}
+
 });
+
